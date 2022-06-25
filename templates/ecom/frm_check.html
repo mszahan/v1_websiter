@@ -1,0 +1,21 @@
+{% extends 'ecom/base.html' %}
+
+{% block title %}
+    check form
+{% endblock title %}
+
+
+{% block main %}
+
+{{frm.as_p}}
+
+<form action="/">
+{% for fr in frm.adress %}
+    {{fr}}
+{% endfor %}
+    <input type="submit" value="submit">
+</form>
+
+{% endblock main %}
+    
+    

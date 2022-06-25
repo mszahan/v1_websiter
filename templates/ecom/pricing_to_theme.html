@@ -1,0 +1,86 @@
+{% extends 'ecom/base.html' %}
+<!-- Hero Section -->
+
+{% load static %}
+
+{% block title %}
+    Select Theme
+{% endblock title %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'ecom/assets/css/personal.css' %}">
+{% endblock head %}
+    
+
+
+{% block main %}
+    
+    
+<section class="personal-website d-flex justify-content-center align-items-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-11  mx-auto section-title">
+                <h2>Please <span> Select a Theme </span> for your website
+                  </h2>
+                  
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- Hero Section -->
+<!-- Choose theme option Start -->
+<section class="choose-theme section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-11"></div>
+            <div class="choose-theme-title">
+                <h2>Choose a website theme</h2>
+            </div>
+        </div>
+        
+        {% for theme in themes %}
+            
+    
+            
+        <div class="row theme-section d-flex justify-content-center align-items-center mx-auto">
+          <div class="col-md-6 col-11">
+              <div class="left-content">
+                  <h3>{{theme.name}}</h3>
+                  <p> {{theme.description}}</p>
+                  <p> theme id {{theme.id}}</p>
+                  <p> pricing id{{pricing.id}}</p>
+
+              </div>
+            </div>
+            <div class="col-md-6 col-11 d-flex justify-content-center">
+              <div class="right-content pt-3 pb-3">
+                  <div class="card">
+                      <img src="{{theme.image.url}}" alt="them-1">
+                      <div class="card-body d-flex">
+                          <a href="#" class="btn btn-outline-success mx-auto">Live Demo</a>
+
+                          
+                          <form action="{% url 'portfolio_checkout' %}" class="d-inline">
+
+                            <input type="hidden" name="pricing_id" value="{{pricing.id}}" id="pricing_id">
+                            <input type="hidden" name="theme_id" value="{{theme.id}}" id="theme_id">
+                            <button type="submit" class="btn btn-outline-success mx-auto"> Select </button>
+                        
+                           </form>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+</section>
+
+{% endblock main %}
+<!-- Choose theme option End -->

@@ -1,0 +1,261 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title> 
+    {% block title %} {% endblock title %} | Websytar
+    </title>
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="{% static 'ecom/assets/css/owl.carousel.min.css' %}" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'ecom/assets/css/index-style.css' %}">
+    <!-- Font Awesome Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- From templatemo template css -->
+    <link rel="stylesheet" href="{% static 'ecom/assets/css/animated.css' %}">
+    <link rel="stylesheet" href="{% static 'ecom/assets/css/owl.css' %}">
+    
+    {% block head %}
+      
+    {% endblock head %}
+      
+  </head>
+<!-- Body Section Start -->
+  <body>
+  <!-- Navbar Start -->
+  <header class="nav-style">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home_page' %}"
+          ><img src="{% static 'ecom/assets/img/logo.png' %}" alt="logo" width="180px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul
+            class="
+              navbar-nav
+              ms-auto
+              mb-lg-0
+              justify-content-center
+              align-items-center
+            "
+          >
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about_us' %}">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Services 
+                <i class="fa fa-angle-down"></i>
+              </a>
+              
+              <ul class="dropdown-menu mt-3" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="{% url 'service_web' %}">Personal Website</a>
+                </li>
+                <li><a class="dropdown-item" href="#">CV Build</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Higher Study Applications</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pricing_plan' %}">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact_us' %}">Contact</a>
+            </li>
+
+
+
+
+        {% if request.user.is_authenticated %}
+  
+
+  
+
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{request.user}}
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu mt-3" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="{% url 'add_profile' %}">Profile</a>
+                </li>
+                <li><a class="dropdown-item" href="{% url 'check_order' %}">Orders</a></li>
+                <li><a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </li>
+              </ul>
+            </li>
+
+
+            {% else %}
+
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="{% url 'login' %}">Login</a>
+            </li>
+
+            {% endif %}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+
+
+
+{% block main %}
+  
+{% endblock main %}
+  
+
+
+
+
+
+
+
+
+
+
+<!-- Footer Start -->
+<footer class="footer-10">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-4 col-6 mb-md-0 mb-4">
+                        <h2 class="footer-heading">About</h2>
+                        <ul class="list-unstyled">
+              <li><a href="#" class="d-block">Out story</a></li>
+              <li><a href="#" class="d-block">Our Team</a></li>
+              <li><a href="#" class="d-block">Career</a></li>
+            </ul>
+                    </div>
+                    <div class="col-md-4 mb-md-0 col-6 mb-4">
+                        <h2 class="footer-heading">Company</h2>
+                        <ul class="list-unstyled">
+              <li><a href="#" class="d-block">Our services</a></li>
+              <li><a href="#" class="d-block">Clients</a></li>
+              <li><a href="#" class="d-block">Contact</a></li>
+            </ul>
+                    </div>
+                    <div class="col-md-4 mb-md-0 mb-4">
+                        <h2 class="footer-heading">Resources</h2>
+                        <ul class="list-unstyled">
+              <li><a href="#" class="d-block">Blog</a></li>
+              <li><a href="#" class="d-block">Newsletter</a></li>
+              <li><a href="#" class="d-block">Privacy Policy</a></li>
+              <li><a href="#" class="d-block">Terms & Conditions</a></li>
+            </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 mb-md-0 mb-4">
+                <h2 class="footer-heading">Subscribe</h2>
+                <form action="#" class="subscribe-form">
+      <div class="form-group d-flex">
+        <input type="text" class="form-control rounded-left" placeholder="Enter email address">
+        <button type="submit" class="form-control submit rounded-right">Subscribe</button>
+      </div>
+      <span class="subheading">Get websytar regular updates in your mailbox</span>
+    </form>
+            </div>
+        </div>
+        <div class="row mt-5 pt-4 border-top">
+  <div class="col-md-6 col-lg-8 mb-md-0 mb-4">
+    <p class="copyright mb-0">
+Copyright &copy; All rights reserved. | Design & Developed <i class="far fa-heart"></i> by <a href="https://exomeit.com" target="_blank">ExomeIT.com</a>
+</p>
+  </div>
+  <div class="col-md-6 col-lg-4 text-md-right">
+      <ul class="ftco-footer-social p-0">
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="ion-logo-twitter"></span></a></li>
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"></span></a></li>
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="ion-logo-instagram"></span></a></li>
+    </ul>
+  </div>
+</div>
+    </div>
+</footer>
+<!-- Footer End -->
+
+<!-- From Folder -->
+
+<!-- jquery js -->
+<script src="{% static 'ecom/assets/js/jquery.min.js' %}"></script>
+<!-- popper js -->
+<script src="{% static 'ecom/assets/js/popper.min.js' %}"></script>
+<!-- bootstrap js -->
+<script src="{% static 'ecom/assets/js/bootstrap.bundle.js' %}"></script>
+<!-- owl-carousel js -->
+<script src="{% static 'ecom/assets/js/owl.carousel.min.js' %}"></script>
+<!-- main js -->
+<script src="{% static 'ecom/assets/js/main-copy.js' %}"></script>
+<!-- from templatemo template -->
+<script src="{% static 'assets/js/animation.js' %}"></script>
+<script src="{% static 'assets/js/imagesloaded.js' %}"></script>
+<script src="{% static 'assets/js/templatemo-custom.js' %}"></script>
+
+<!-- For CDN -->
+
+<!-- jquery js -->
+<!-- <script src="static/js/jquery.min.js"></script> -->
+<!-- Javascript: Bootstrap Bundle with Popper -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script> -->
+<!-- owl-carousel js -->
+<!-- <script src="static/js/owl.carousel.min.js"></script> -->
+<!-- main js -->
+<!-- <script src="static/js/main-copy.js"></script> -->
+<!-- from templatemo template -->
+<!-- <script src="static/js/animation.js"></script>
+<script src="static/js/imagesloaded.js"></script>
+<script src="static/js/templatemo-custom.js"></script> -->
+</body>
+</html>

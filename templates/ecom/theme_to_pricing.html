@@ -1,0 +1,74 @@
+{% extends 'ecom/base.html' %}
+{% load static %}
+<!-- Pricing Start -->
+
+{% block title %}
+    Select a pricing plan
+{% endblock title %}
+    
+
+
+{% block main %}
+   
+
+    
+<section class="pricing section-padding">
+    <div class="container" id="price">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-11">
+          <div class="section-title">
+            <h2> Please selct a Pricing <span>Plan</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+
+      {% for pricing in pricings %}
+  
+
+  
+        <div class="col-md-4 col-11 mx-auto">
+          <div class="pricing-items">
+            <div class="pricing-header">
+              <h3>{{ pricing.package_name}}</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="currency">$</span>
+              <span class="price">{{ pricing.price}}</span>
+              <span class="domain">+Domain</span>
+            </div>
+            <div class="pricing-body">
+              <ul>
+           
+                {% for featur in pricing.feature_ls %}
+             
+                <li><i class="fas fa-check"></i>{{featur}}</li>
+
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="pricing-footer">
+                <form action="{% url 'portfolio_checkout' %}" class="d-inline">
+
+                    <input type="hidden" name="pricing_id" value="{{pricing.id}}" id="pricing_id">
+                    <input type="hidden" name="theme_id" value="{{theme.id}}" id="theme_id">
+                    <button type="submit" class="btn btn-outline-success mx-auto"> Select </button>
+                
+                   </form>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Pricing End -->
+
+  {% endblock main %}

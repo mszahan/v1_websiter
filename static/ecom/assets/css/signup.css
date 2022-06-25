@@ -1,0 +1,145 @@
+-- Font --*/ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --------
+Global CSS
+----------- */
+:root {
+    --main-color: #FF5722;
+    --deep-color-1: #E64A19;
+    --main-color-light: #FFCCBC;
+    --bg-dark: #2b2c2f;
+    --main-to-dark-color: var(--main-color);
+    --dark-to-main-color: var(--bg-dark);
+    --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --black-900: #212121;
+    --black-400: #757575;
+    --black-300: #BDBDBD;
+    --black-100: #f7f7f7;
+    --black-000: #fff;
+    --black-alpha-100: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+html body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-color: #fff;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ul li {
+    list-style: none;
+}
+
+ol,
+ul {
+    padding-left: 0;
+}
+a:hover{
+    color: #FF5722;
+}
+
+.signup-form {
+    padding: 7rem 0;
+}
+
+.signup-form .bg {
+    width: 50%;
+}
+
+/* Left-side */
+
+.signup-form .left-content h3 {
+    font-size: 24px;
+    color: 212121;
+    font-weight: 500;
+}
+
+.signup-form .left-content p {
+    font-size: 18px;
+    color: #757575;
+    line-height: 26px;
+    font-weight: 400;
+
+}
+
+/* Form */
+
+.form .form-label{
+    color: #757575;
+    font-size: 16px;
+}
+
+.form .form-control{
+    color: #757575;
+    font-weight: 300;
+    font-size: 15px;
+}
+.form .form-check-label{
+    color: #757575;
+    font-weight: 400;
+}
+.form .form-check-input{
+    background-color: #FF5722;
+    border-color: #FF5722;
+}
+.signup-form .form-check .form-check-input:active,
+.signup-form .form-check .form-check-input:focus,
+.signup-form .bg .form-check-input:active,
+.signup-form .bg .form-check-input:focus{
+    outline: none;
+    box-shadow: none;
+}
+.form .have-account, a{
+    color: #757575;
+    font-weight: 600;
+}
+.btn-primary{
+    background-color: #FF5722;
+    border-color: #FF5722;
+}
+.btn-primary:hover{
+    background-color: #212121;
+    border-color: #212121;
+}
+
+.signup-form .form .btn-primary:active,
+.signup-form .form .btn-primary:focus,
+.signup-form .bg .btn-primary:active,
+.signup-form .bg .btn-primary:focus{
+    outline: none;
+    -webkit-box-shadow:none;
+}
+/* --------------
+Responsive
+-------------- */
+
+@media (max-width: 1199.98px) {
+
+    .signup-form .left-content .form,
+    .signup-form .bg {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .signup-form .bg {
+        height: 500px;
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .right-image img{
+        display: none;
+    }
+}

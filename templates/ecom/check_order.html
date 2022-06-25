@@ -1,0 +1,39 @@
+{% extends 'ecom/base.html' %}
+{% load static %}
+{% block title %}Order{% endblock title %}
+{% block main %}
+<div class="container my-5">
+ <div class="row">
+ <h3>Welcome {{request.user}} </h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="#" class="btn btn-primary">Orders</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+      
+      {% for op in order_placed %}
+          
+    
+          
+   <div class="row shadow-sm mb-3">
+    <div class="col-sm-2">
+        <img src="{{op.theme.image.url}}" alt="" class="img-fluid" height="150" width="150">
+    </div>
+    <div class="col-sm-7">
+        <p>Theme: {{op.theme.name}} </p>
+        <p>Pricing Plan: {{op.price.package_name}}</p>
+        <p>Price: {{op.price.price}}</p>
+
+    </div>
+
+    <div class="col-sm-3 fw-bold">
+        <p>Order Status: {{op.status}} </p>
+
+    </div>
+   </div>
+   {% endfor %}
+  </div>
+ </div>
+</div>
+{% endblock main %}

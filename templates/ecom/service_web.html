@@ -1,0 +1,77 @@
+{% extends 'ecom/base.html' %}
+<!-- Hero Section -->
+
+{% load static %}
+
+{% block title %}
+    Personal Website
+{% endblock title %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'ecom/assets/css/personal.css' %}">
+{% endblock head %}
+    
+
+
+{% block main %}
+    
+    
+<section class="personal-website d-flex justify-content-center align-items-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-11  mx-auto section-title">
+                <h2>Personal <span>Portfolio Website</span> for your <br>
+                  Higher Study, Job applications and more</h2>
+                  <p class="pt-3">Make yourself more visible and credible for digital presence, higher study application, job, or anything you want! 
+
+                      Click, edit, done! Make changes or add new stuff anytime, anywhere, and it will show up instantly.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- Hero Section -->
+<!-- Choose theme option Start -->
+<section class="choose-theme section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-11"></div>
+            <div class="choose-theme-title">
+                <h2>Choose a website theme</h2>
+            </div>
+        </div>
+        
+        {% for theme in themes %}
+            
+    
+            
+        <div class="row theme-section d-flex justify-content-center align-items-center mx-auto">
+          <div class="col-md-6 col-11">
+              <div class="left-content">
+                  <h3>{{theme.name}}</h3>
+                  <p> {{theme.description}}</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-11 d-flex justify-content-center">
+              <div class="right-content pt-3 pb-3">
+                  <div class="card">
+                      <img src="{{theme.image.url}}" alt="them-1">
+                      <div class="card-body d-flex">
+                          <a href="#" class="btn btn-outline-success mx-auto">Live Demo</a>
+                          <a href="{% url 'theme_to_pricing' theme.id %}" class="btn btn-outline-success mx-auto">Buy Now</a>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+</section>
+
+{% endblock main %}
+<!-- Choose theme option End -->

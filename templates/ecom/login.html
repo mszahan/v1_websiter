@@ -1,0 +1,120 @@
+{% extends 'ecom/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'ecom/assets/css/login.css' %}" />
+{% endblock head %}
+    
+{% block main %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3 class="text-center">Login</h3>
+   <hr>
+   <form action="" method="post" novalidate class="shadow p-5">
+    {% csrf_token %}
+    
+    {% for fm in form %}
+    <div class="form-group">
+        {{fm.label_tag}} {{fm}} <small class="text-danger"> {{fm.errors|striptags}}</small> <br>
+
+    </div>
+        
+    {% endfor %}
+
+    <small><a href="{% url 'password_reset' %}"> Forgot Password? </a></small> <br>
+    <input type="submit" value="Login", class="btn btn-dark mt-4">
+    <br>
+    <div class="text-center text-primary fw-bold">
+        <small>New to Websyter? <a href=" {% url 'registration' %}" class="text-danger"> Create an Account</a></small>
+    </div>
+    
+    {% if form.non_field_errors %}
+        
+        {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3"> {{error}}</p>
+        {% endfor %}
+            
+    {% endif %}
+        
+        
+
+
+   </form>
+  </div>
+ </div>
+</div>
+
+
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-11 order-md-2">
+          <img
+            src="assets/img/v2/secure-girl.png"
+            alt="Image"
+            class="secure-girl"
+            width="100%"
+          />
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4 title-1">
+                <h2>
+                  Sign In to <span><a href="index.html">Websytar</a></span>
+                </h2>
+                <p class="mb-4 mt-4">
+                  In order to get started please Sign in to your dashboard
+                </p>
+              </div>
+              <form action="#" method="post">
+                <div class="form-group first ">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" />
+                </div>
+                <div class="form-group last ">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" />
+                </div>
+                <div class="form-check mb-5">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckChecked"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Remember me
+                  </label>
+                  <span> <a class="px-4" href="">forgot password</a></span>
+                </div>
+                <input
+                  type="submit"
+                  value="Log In"
+                  class="btn text-white btn-block btn-secondary px-5"
+                />
+                <br>
+                <br>
+                <p>Don't have an account? <strong><a href="signup.html">Register here</a></strong></p>
+                <div class="social-login mt-3">
+                  <ul class="d-flex align-items-center">
+                     <span>or sign in with </span> 
+                      <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                      <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                      <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock main %}

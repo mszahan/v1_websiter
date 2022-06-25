@@ -1,0 +1,68 @@
+{% extends 'ecom/base.html' %}
+{% load static %}
+{% block title %} Checkout {% endblock title %}
+{% block main %}
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <h4>Order Summary</h4>
+    <hr>
+    
+    <div class="row">
+        <div class="col-sm-3 text-center align-self-center"><img src="{{theme.image.url}}" alt="" srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"> </div>
+        <div class="col-sm-9">
+         <div>
+          <h5> Selected Theme: {{theme.name}} </h5>
+          <br>
+          <h5> Pricing Plan: {{pricing.package_name}} </h5>
+        
+          <div class="d-flex justify-content-between">
+           <p class="mb-0"><span>Total: ${{pricing.price}} </span></p>
+          </div>
+         </div>
+        </div>
+       </div>
+    
+      <hr>
+      <p class="fw-bold"> Total Cost <small>(Excluding Domain cost)</small>: $ {{pricing.price}} </p>
+
+
+    <small>Term and Condition: <span>ullam saepe! </span>  </small>
+  </div>
+  <div class="col-sm-4 offset-sm-1">
+    <h4>Select Delivary Address</h4>
+    <hr>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% for add in address %}
+        
+     
+        
+      <div class="card">
+        <div class="card-body">
+        <h5> {{ add.name }}</h5>
+        <p>{{ add.country.name }}</p>
+        <p> Delivary Mail: {{ add.delivary_mail }}</p>
+        </div>
+      </div>
+        <div class="form-check mt-2 mb-5">
+          <input class="form-check-input" type="radio" name="custid" id="custaddr{{forloop.counter}}" value="{{add.id}}">
+          <label class="form-check-label fw-bold" for="">
+            Address: {{forloop.counter}} </label>
+        </div>
+        {% empty %}
+        <p>Please <a href="{% url 'add_profile' %}" class="btn btn-2">Add an Address</a> for delivary </p>
+        {% endfor %}
+        {{frm}}
+        <input type="hidden" name="pricing_id" value="{{pricing.id}}" id="pricing_id">
+        <input type="hidden" name="theme_id" value="{{theme.id}}" id="theme_id">
+
+        <div class="text-end ">
+          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>
+</div>
+{% endblock main %}
